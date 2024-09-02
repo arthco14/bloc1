@@ -17,4 +17,4 @@ Post--> envoie des données au serveur pour créer ou modifier (https://develope
 (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
 
 
-3)
+3)il est extensible car il permet de transmettre des hypertextes et images et vidéos
