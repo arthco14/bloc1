@@ -1,4 +1,11 @@
-1) Get --> récupère des données specifiés (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
-   Post--> envoie des données au serveur (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
+#Réponses
+
+
+## 1:
+
+Get --> demande des données specifiés (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
+Post--> envoie des données au serveur pour créer ou modifier (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
+
+exemple:
 
 2)
