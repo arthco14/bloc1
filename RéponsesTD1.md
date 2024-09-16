@@ -43,5 +43,16 @@ Fragment : #section (partie spécifique de la ressource).
 
 8)Fait sur xampp
 
-9)
+10)
+| En-tête | Rôle |
+| --- | --- |
+| Host |	Spécifie le domaine du serveur |
+| User-Agent |	Identifie le client (navigateur, bot)|
+| Accept |	Types de contenu acceptés |
+| Accept-Language |	Langues préférées |
+| Accept-Encoding |	Encodages acceptés (gzip, deflate) |
+| Authorization |	Informations d'authentification |
+| Cookie |	Cookies envoyés par le client |
+|Connection |	Contrôle la persistance de la connexion |
+
 
