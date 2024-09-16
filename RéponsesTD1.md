@@ -39,6 +39,8 @@ Fragment : #section (partie spécifique de la ressource).
 5xx - Server Error : 500 Internal Server Error (erreur serveur).
 
 
+7)Le serveur sélectionne la réponse en fonction des en-têtes Accept du client. Par exemple, un client demandant Accept: application/json recevra une réponse JSON si disponible.
+
 
 
 
