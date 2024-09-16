@@ -24,8 +24,7 @@ Post--> envoie des données au serveur pour créer ou modifier (https://develope
 Conséquences : Utilisation de cookies ou de sessions pour maintenir l'état. Simplifie la gestion des connexions et améliore la scalabilité du serveur.
 
 
-5)
-Protocole : http:// ou https:// (spécifie le protocole).
+5)Protocole : http:// ou https:// (spécifie le protocole).
 Nom d'hôte : www.example.com (identifie le serveur).
 Port : :80 ou :443 (facultatif, spécifie le port).
 Chemin : /path/to/resource (localisation de la ressource).
