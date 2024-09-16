@@ -30,3 +30,15 @@ Port : :80 ou :443 (facultatif, spécifie le port).
 Chemin : /path/to/resource (localisation de la ressource).
 Query String : ?key=value (paramètres supplémentaires).
 Fragment : #section (partie spécifique de la ressource).
+
+
+6)1xx - Informational : 100 Continue (le client peut continuer).
+2xx - Success : 200 OK (requête réussie).
+3xx - Redirection : 301 Moved Permanently (ressource déplacée).
+4xx - Client Error : 404 Not Found (ressource non trouvée).
+5xx - Server Error : 500 Internal Server Error (erreur serveur).
+
+
+
+
+
