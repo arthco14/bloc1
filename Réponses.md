@@ -18,3 +18,8 @@ Post--> envoie des données au serveur pour créer ou modifier (https://develope
 
 
 3)il est extensible car il permet de transmettre des hypertextes et images et vidéos
+
+4) HTTP sans état
+Signification : HTTP est sans état car il ne conserve pas d'informations entre les requêtes. Chaque requête est indépendante.
+
+Conséquences : Utilisation de cookies ou de sessions pour maintenir l'état. Simplifie la gestion des connexions et améliore la scalabilité du serveur.
