@@ -17,7 +17,7 @@ Post--> envoie des données au serveur pour créer ou modifier (https://develope
 (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
 
 
-3)il est extensible car il permet de transmettre des hypertextes et images et vidéos
+3)HTTP est un protocole extensible qui a évolué au cours du temps. À partir de HTTP/1.0, les en-têtes HTTP permettent d'étendre facilement le protocole et de mener des expérimentations avec celui-ci. C'est un protocole de la couche application dont les données transitent via TCP ou à travers une connexion TCP chiffrée avec TLS. En raison de son extensibilité, il n'est pas seulement utilisé pour récupérer des documents, mais aussi pour des images, des vidéos ou bien pour renvoyer des contenus vers des serveurs, comme des résultats de formulaires HTML. HTTP peut aussi être utilisé pour récupérer des parties de documents pour mettre à jour à la demande des pages web.
 
 
 4)Signification : HTTP est sans état car il ne conserve pas d'informations entre les requêtes. Chaque requête est indépendante.
