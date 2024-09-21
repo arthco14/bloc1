@@ -32,14 +32,24 @@ Query String : ?key=value (paramètres supplémentaires).
 Fragment : #section (partie spécifique de la ressource).
 
 
-6)1xx - Informational : 100 Continue (le client peut continuer).
-2xx - Success : 200 OK (requête réussie).
-3xx - Redirection : 301 Moved Permanently (ressource déplacée).
-4xx - Client Error : 404 Not Found (ressource non trouvée).
-5xx - Server Error : 500 Internal Server Error (erreur serveur).
+6)- Réponses informatives (100 – 199)  
+  exemple: `100` Continue 
+  > Cette réponse intermédiaire indique que le client doit poursuivre la demande ou ignorer la réponse si la demande est déjà terminée.
+- Réponses réussies (200 – 299)  
+  exemple: `201` Created
+  > La requête a réussi et une nouvelle ressource a été créée en conséquence. Il s'agit généralement de la réponse envoyée après `POST` des requêtes ou certaines `PUT` requêtes.
+- Messages de redirection (300 – 399)  
+  exemple: `301` Moved Permanently
+  > L'URL de la ressource demandée a été modifiée de manière permanente. La nouvelle URL est indiquée dans la réponse.
+- Réponses d’erreur du client (400 – 499)  
+  exemple: `404` Not Found
+  > Le serveur ne trouve pas la ressource demandée. Dans le navigateur, cela signifie que l'URL n'est pas reconnue. Dans une API, cela peut également signifier que le point de terminaison est valide mais que la ressource elle-même n'existe pas. Les serveurs peuvent également envoyer cette réponse au lieu de 403 Forbidden pour masquer l'existence d'une ressource à un client non autorisé. Ce code de réponse est probablement le plus connu en raison de son apparition fréquente sur le Web.
+- Réponses d'erreur du serveur (500 – 599)  
+  exemple: `504` Gateway Timeout
+  > Cette réponse d'erreur est donnée lorsque le serveur agit comme une passerelle et ne peut pas obtenir de réponse à temps.
+  
 
-7)
-- En HTTP, la négociation de contenu est le mécanisme utilisé pour servir différentes représentations d'une ressource à partir du même URI pour aider l'agent utilisateur à indiquer la représentation la plus adaptée à l'utilisatrice ou à l'utilisateur (par exemple, la langue du document, le format d'image ou l'encodage à utiliser pour le contenu).
+7)- En HTTP, la négociation de contenu est le mécanisme utilisé pour servir différentes représentations d'une ressource à partir du même URI pour aider l'agent utilisateur à indiquer la représentation la plus adaptée à l'utilisatrice ou à l'utilisateur (par exemple, la langue du document, le format d'image ou l'encodage à utiliser pour le contenu).
 
 **Les principes de la négociation de contenu**
 - Un document donné est défini comme une ressource. Lorsqu'un client souhaite obtenir une ressource, il la demande via une URL. Le serveur utilise alors cette URL pour choisir l'une des variantes disponibles. Chaque variante est appelée une représentation. Le serveur renvoie alors une représentation donnée au client. La ressource, ainsi que chacune de ses représentations, dispose d'une URL spécifique. La négociation de contenu détermine quelle représentation donnée est utilisée lorsque la ressource est demandée. Il existe plusieurs méthodes de négociation entre le client et le serveur.
