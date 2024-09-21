@@ -1,8 +1,8 @@
 ## 1:
-Get --> demande des données specifiés (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
+1)Get --> demande des données specifiés (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
 Post--> envoie des données au serveur pour créer ou modifier (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
 
-
+2).
   |   | Get | Post |
   | ---|---|---|
   | La requête a un corps | non | oui |
