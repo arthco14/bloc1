@@ -1,38 +1,50 @@
-## 1:
-1)Get --> demande des données specifiés (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
-Post--> envoie des données au serveur pour créer ou modifier (https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
+Question 1:
 
-2).
-  |   | Get | Post |
-  | ---|---|---|
-  | La requête a un corps | non | oui |
-  | Une réponse réussie a du corps | oui | oui |
-  | sûr | oui | non |
-  | indempotant | oui | non |
-  | Peut être mis en cache | oui | Uniquement si les informations sur la fraîcheur sont incluses |
-  | autorisé dans les formulaires HTML | oui | oui |
+- La méthode HTTP `GET` demande une représentation de la ressource spécifiée. Les requêtes utilisant `GET` ne doivent être utilisées que pour demander des données et ne doivent pas inclure de contenu.
 
+- La méthode HTTP `POST` envoie des données au serveur. Une requête `POST` est généralement envoyée via un formulaire HTML et entraîne une modification sur le serveur.
 
-(https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
-(https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)
+Question 2:
 
-
-3)HTTP est un protocole extensible qui a évolué au cours du temps. À partir de HTTP/1.0, les en-têtes HTTP permettent d'étendre facilement le protocole et de mener des expérimentations avec celui-ci. C'est un protocole de la couche application dont les données transitent via TCP ou à travers une connexion TCP chiffrée avec TLS. En raison de son extensibilité, il n'est pas seulement utilisé pour récupérer des documents, mais aussi pour des images, des vidéos ou bien pour renvoyer des contenus vers des serveurs, comme des résultats de formulaires HTML. HTTP peut aussi être utilisé pour récupérer des parties de documents pour mettre à jour à la demande des pages web.
+|                       | `GET` | `POST` |
+|----|:---:|:---:|
+| La requête a un corps |  NON  |  OUI   |
+| Une réponse réussie a du corps | OUI | OUI |
+| Sûr |  OUI  |  NON   |
+| Idempotent | OUI | NON |
+| Peut être mis en cache |  OUI  |  Seulement si une information de péremption est incluse   |
+| Autorisé dans les formulaires HTML | OUI | OUI |
 
 
-4)Signification : HTTP est sans état car il ne conserve pas d'informations entre les requêtes. Chaque requête est indépendante.
-Conséquences : Utilisation de cookies ou de sessions pour maintenir l'état. Simplifie la gestion des connexions et améliore la scalabilité du serveur.
+Question 3:
+
+- HTTP est un protocole extensible qui a évolué au cours du temps. À partir de HTTP/1.0, les en-têtes HTTP permettent d'étendre facilement le protocole et de mener des expérimentations avec celui-ci. C'est un protocole de la couche application dont les données transitent via TCP ou à travers une connexion TCP chiffrée avec TLS. En raison de son extensibilité, il n'est pas seulement utilisé pour récupérer des documents, mais aussi pour des images, des vidéos ou bien pour renvoyer des contenus vers des serveurs, comme des résultats de formulaires HTML. HTTP peut aussi être utilisé pour récupérer des parties de documents pour mettre à jour à la demande des pages web.
 
 
-5)Protocole : http:// ou https:// (spécifie le protocole).
-Nom d'hôte : www.example.com (identifie le serveur).
-Port : :80 ou :443 (facultatif, spécifie le port).
-Chemin : /path/to/resource (localisation de la ressource).
-Query String : ?key=value (paramètres supplémentaires).
-Fragment : #section (partie spécifique de la ressource).
+Question 4:
 
+- HTTP est un protocole sans état , ce qui signifie que le serveur ne conserve aucune donnée (état) entre deux requêtes.
 
-6)- Réponses informatives (100 – 199)  
+  Les protocoles sans état améliorent les propriétés de visibilité, de fiabilité et d'évolutivité. La visibilité est améliorée car un système de surveillance n'a pas besoin de regarder au-delà d'une seule requête pour déterminer sa nature complète. La fiabilité est améliorée car elle facilite la tâche de récupération après des pannes partielles. L'évolutivité est améliorée car le fait de ne pas avoir à stocker l'état de session entre les requêtes permet au serveur de libérer rapidement des ressources et simplifie encore davantage la mise en œuvre.
+
+  L’inconvénient des protocoles sans état est qu’ils peuvent diminuer les performances du réseau en augmentant les données répétitives envoyées dans une série de requêtes, car ces données ne peuvent pas être laissées sur le serveur et réutilisées.
+
+Question 5:
+
+- Les URL de données sont composées de quatre parties : un préfixe ( data:), un type MIME indiquant le type de données, un base64jeton facultatif s'il n'est pas textuel et les données elles-mêmes :
+      `data:[<mediatype>][;base64],<data>`
+
+  Le `mediatype` est d'une chaîne de type MIME , comme `'image/jpeg'` pour un fichier image JPEG. Si elle est omise, la valeur par défaut est `text/plain;charset=US-ASCII`.
+
+  Si les données contiennent des caractères définis dans la RFC 3986 comme caractères réservés , ou contiennent des caractères d'espacement, des caractères de nouvelle ligne ou d'autres caractères non imprimables, ces caractères doivent être codés en pourcentage .
+
+  Si les données sont textuelles, on peut incorporer le texte (en utilisant les entités ou les échappements appropriés en fonction du type du document englobant). Sinon, on peut  spécifier `base64` d'incorporer des données binaires codées en base64.
+
+Question 6:
+
+Les codes d'état de réponse HTTP indiquent si une requête HTTP spécifique a été exécutée avec succès. Les réponses sont regroupées en cinq classes :
+
+- Réponses informatives (100 – 199)  
   exemple: `100` Continue 
   > Cette réponse intermédiaire indique que le client doit poursuivre la demande ou ignorer la réponse si la demande est déjà terminée.
 - Réponses réussies (200 – 299)  
@@ -47,20 +59,22 @@ Fragment : #section (partie spécifique de la ressource).
 - Réponses d'erreur du serveur (500 – 599)  
   exemple: `504` Gateway Timeout
   > Cette réponse d'erreur est donnée lorsque le serveur agit comme une passerelle et ne peut pas obtenir de réponse à temps.
-  
 
-7)- En HTTP, la négociation de contenu est le mécanisme utilisé pour servir différentes représentations d'une ressource à partir du même URI pour aider l'agent utilisateur à indiquer la représentation la plus adaptée à l'utilisatrice ou à l'utilisateur (par exemple, la langue du document, le format d'image ou l'encodage à utiliser pour le contenu).
+Question 7:
+
+- En HTTP, la négociation de contenu est le mécanisme utilisé pour servir différentes représentations d'une ressource à partir du même URI pour aider l'agent utilisateur à indiquer la représentation la plus adaptée à l'utilisatrice ou à l'utilisateur (par exemple, la langue du document, le format d'image ou l'encodage à utiliser pour le contenu).
 
 **Les principes de la négociation de contenu**
 - Un document donné est défini comme une ressource. Lorsqu'un client souhaite obtenir une ressource, il la demande via une URL. Le serveur utilise alors cette URL pour choisir l'une des variantes disponibles. Chaque variante est appelée une représentation. Le serveur renvoie alors une représentation donnée au client. La ressource, ainsi que chacune de ses représentations, dispose d'une URL spécifique. La négociation de contenu détermine quelle représentation donnée est utilisée lorsque la ressource est demandée. Il existe plusieurs méthodes de négociation entre le client et le serveur.
+
+![](https://developer.mozilla.org/fr/docs/Web/HTTP/Content_negotiation/httpnego.png)
 
 La représentation la plus adaptée est choisie selon l'un de ces deux mécanismes :
 
 - Des en-têtes HTTP spécifiques envoyés par le client (négociation menée par le serveur ou négociation proactive) : il s'agit de la méthode standard pour négocier un type de ressource donné.
 - Les codes de réponse HTTP `300 Multiple Choices`, `406 Not Acceptable` ou `415 Unsupported Media Type` envoyés par le serveur (négociation menée par l'agent ou négociation réactive), sont utilisés comme mécanismes de recours.
 
-
-10)
+Question 10:
 
 **Request Header**
 
@@ -117,5 +131,4 @@ La représentation la plus adaptée est choisie selon l'un de ces deux mécanism
 |Transfer-Encoding|Méthode de compression|Transfer-Encoding: gpzip|
 |Vary|Indique quels champs d’en-tête doivent être considérés comme variables si un fichier est demandé dans le cache|Vary: User-Agent (= le serveur contient différentes versions de fichiers selon l’User Agent)|
 |Via|Via quels proxies la réponse a été envoyée|Via : 1.1www.exemple.fr|
-
 
