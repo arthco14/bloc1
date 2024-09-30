@@ -131,3 +131,7 @@ Question 10:
 |Transfer-Encoding|Méthode de compression|Transfer-Encoding: gpzip|
 |Vary|Indique quels champs d’en-tête doivent être considérés comme variables si un fichier est demandé dans le cache|Vary: User-Agent (= le serveur contient différentes versions de fichiers selon l’User Agent)|
 |Via|Via quels proxies la réponse a été envoyée|Via : 1.1www.exemple.fr|
+|Set-Cookie|Installe un cookie chez le client|	Set-Cookie: UserID=XY; Max-Age=3800; Version=1|
+|Transfer-Encoding|Méthode de compression|Transfer-Encoding: gpzip|
+|Vary|Indique quels champs d’en-tête doivent être considérés comme variables si un fichier est demandé dans le cache|Vary: User-Agent (= le serveur contient différentes versions de fichiers selon l’User Agent)|
+|Via|Via quels proxies la réponse a été envoyée|Via : 1.1www.exemple.fr|
