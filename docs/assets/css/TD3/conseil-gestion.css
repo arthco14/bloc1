@@ -1,5 +1,5 @@
 body {
-    background-image: url("bloc1/docs/assest/css/TD3/df-min.jpg");
+    background-image: url("../td3/df-min.jpg");
     height: 100vh; /* Assurez-vous que le body prend toute la hauteur de la page */
     width: 100%;
     margin: 0;
