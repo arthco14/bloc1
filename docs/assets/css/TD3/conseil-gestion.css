@@ -1,4 +1,4 @@
-* {
+<* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-image: url("../../images/df-min.jpg");
+    background-image: url("../images/df-min.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }  
@@ -91,6 +91,17 @@ body {
 .service p {
     font-size: 14px;
     color: #666;
+}
+
+.bottom-container {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer {
+    font-size: 12px;
 }
 
 .bottom-container {
