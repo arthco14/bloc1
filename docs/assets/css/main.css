@@ -14,18 +14,18 @@ header {
     align-items: center;
 }
 
-profile {
+.profile {
     display: flex;
     align-items: center;
     margin-right: auto; /* Permet d'envoyer le titre au centre */
 }
 
-header-title {
+.header-title {
     flex-grow: 1; /* Prend l'espace restant pour centrer le titre */
     text-align: center; /* Centre le titre */
 }
 
-profile img {
+.profile img {
     width: 150px; /* Ajustez la taille selon vos besoins */
     height: 150px; /* Ajustez la taille selon vos besoins */
     border-radius: 50%; /* Rend l'image ronde */
