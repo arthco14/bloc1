@@ -1,7 +1,118 @@
-h1 {
-    color: brown;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-h2{
-    color: aquamarine;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Permet d'envoyer le titre au centre */
+}
+
+.header-title {
+    flex-grow: 1; /* Prend l'espace restant pour centrer le titre */
+    text-align: center; /* Centre le titre */
+}
+
+.profile img {
+    width: 150px; /* Ajustez la taille selon vos besoins */
+    height: 150px; /* Ajustez la taille selon vos besoins */
+    border-radius: 50%; /* Rend l'image ronde */
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0; /* Ajoutez un peu d'espace au-dessus de la nav */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.folder {
+    cursor: pointer;
+    color: #1a73e8;
+    text-decoration: underline;
+}
+.projects {
+    display: none;
+    margin-left: 20px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+}
+.profile img {
+    width: 100px; /* Ajustez la taille selon vos besoins */
+    height: 100px; /* Ajustez la taille selon vos besoins */
+    border-radius: 50%; /* Rend l'image ronde */
+    margin-right: 10px;
+}
+
+span{
+    font-size: 1.5em;
+    margin-left: 20px;
 }
