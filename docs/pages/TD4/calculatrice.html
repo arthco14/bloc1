@@ -3,21 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un élément à la liste</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="../../assets/css/td4/calculatrice.css">
+    <script src="../../js/td4/calculatrice.js"></script>
 </head>
 <body>
-<h1>Ajouter un élément à la liste</h1>
-<input type="text" id="newItem" placeholder="Nouvel élément">
-<button id="addItemBtn">Ajouter</button>
-<ul id="itemList"></ul>
 
-<script src="exercices.js"></script>
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="appendNumber(7)">7</button>
+    <button onclick="appendNumber(8)">8</button>
+    <button onclick="appendNumber(9)">9</button>
+    <button onclick="setOperator('*')">×</button>
+    <br>
+    <button onclick="appendNumber(4)">4</button>
+    <button onclick="appendNumber(5)">5</button>
+    <button onclick="appendNumber(6)">6</button>
+    <button onclick="setOperator('-')">-</button>
+    <br>
+    <button onclick="appendNumber(1)">1</button>
+    <button onclick="appendNumber(2)">2</button>
+    <button onclick="appendNumber(3)">3</button>
+    <button onclick="setOperator('+')">+</button>
+    <br>
+    <button onclick="toggleSign()">+/-</button>
+    <button onclick="appendNumber(0)">0</button>
+    <button onclick="addDecimal()">,</button>
+    <button onclick="setOperator('/')">÷</button>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button class="equal" onclick="calculate()">=</button>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
