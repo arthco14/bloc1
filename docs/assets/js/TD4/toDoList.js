@@ -1,107 +1,89 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const taskInput = document.getElementById('taskInput');
-    const addTaskBtn = document.getElementById('addTaskBtn');
-    const taskList = document.getElementById('taskList');
-    const removeCompletedBtn = document.getElementById('removeCompletedBtn');
-    const saveBtn = document.getElementById('saveBtn');
-    const loadBtn = document.getElementById('loadBtn');
-    const loadSelect = document.getElementById('loadSelect');
-    const saveNameInput = document.getElementById('saveName');
+    const taskInput = document.getElementById('task-input');
+    const taskList = document.getElementById('task-list');
+    const addTaskButton = document.getElementById('add-task');
+    const deleteCompletedButton = document.getElementById('delete-completed');
+    const saveTasksButton = document.getElementById('save-tasks');
+    const loadTasksButton = document.getElementById('load-tasks');
+    const saveNameInput = document.getElementById('save-name');
 
-    function createTaskElement(taskText, isChecked = false) {
+    // Ajouter une nouvelle tâche
+    addTaskButton.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+        if (taskText !== "") {
+            createTaskElement(taskText);
+            taskInput.value = "";
+        }
+    });
+
+    // Créer un élément de tâche
+    function createTaskElement(taskText, completed = false) {
         const li = document.createElement('li');
+        const taskLabel = document.createElement('span');
+        taskLabel.textContent = taskText;
+        taskLabel.contentEditable = true;
+        if (completed) {
+            li.classList.add('completed');
+        }
+
+        // Créer une case à cocher
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.checked = isChecked;
-        checkbox.addEventListener('change', saveTaskList);
+        checkbox.checked = completed;
+        checkbox.addEventListener('change', () => {
+            li.classList.toggle('completed');
+        });
 
-        const taskLabel = document.createElement('span');
-        taskLabel.innerText = taskText;
-        taskLabel.contentEditable = true; // permet la modification de la tâche
-        taskLabel.addEventListener('input', saveTaskList);
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.innerText = '🗑';
-        deleteBtn.addEventListener('click', () => {
-            li.remove();
-            saveTaskList();
+        // Ajouter un bouton de suppression
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Supprimer';
+        deleteButton.addEventListener('click', () => {
+            taskList.removeChild(li);
         });
 
         li.appendChild(checkbox);
         li.appendChild(taskLabel);
-        li.appendChild(deleteBtn);
+        li.appendChild(deleteButton);
         taskList.appendChild(li);
     }
 
-    function saveTaskList() {
+    // Supprimer les tâches terminées
+    deleteCompletedButton.addEventListener('click', () => {
+        const tasks = taskList.querySelectorAll('li.completed');
+        tasks.forEach(task => {
+            taskList.removeChild(task);
+        });
+    });
+
+    // Sauvegarder les tâches
+    saveTasksButton.addEventListener('click', () => {
         const tasks = [];
         taskList.querySelectorAll('li').forEach(li => {
-            const taskText = li.querySelector('span').innerText;
-            const isChecked = li.querySelector('input').checked;
-            tasks.push({ text: taskText, completed: isChecked });
+            const task = {
+                text: li.querySelector('span').textContent,
+                completed: li.classList.contains('completed')
+            };
+            tasks.push(task);
         });
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-
-    function loadTaskList() {
-        const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-        taskList.innerHTML = ''; // vide la liste actuelle
-        tasks.forEach(task => {
-            createTaskElement(task.text, task.completed);
-        });
-    }
-
-    addTaskBtn.addEventListener('click', () => {
-        const taskText = taskInput.value.trim();
-        if (taskText !== '') {
-            createTaskElement(taskText);
-            saveTaskList();
-            taskInput.value = '';
-        }
-    });
-
-    removeCompletedBtn.addEventListener('click', () => {
-        taskList.querySelectorAll('li').forEach(li => {
-            if (li.querySelector('input').checked) {
-                li.remove();
-            }
-        });
-        saveTaskList();
-    });
-
-    saveBtn.addEventListener('click', () => {
         const saveName = saveNameInput.value.trim();
-        if (saveName !== '') {
-            const tasks = localStorage.getItem('tasks');
-            localStorage.setItem(saveName, tasks);
-            updateLoadSelect();
+        if (saveName) {
+            localStorage.setItem(saveName, JSON.stringify(tasks));
+            alert('Tâches sauvegardées sous "' + saveName + '"');
         }
     });
 
-    loadBtn.addEventListener('click', () => {
-        const selectedSave = loadSelect.value;
-        if (selectedSave !== '') {
-            const savedTasks = localStorage.getItem(selectedSave);
+    // Recharger les tâches sauvegardées
+    loadTasksButton.addEventListener('click', () => {
+        const saveName = saveNameInput.value.trim();
+        if (saveName) {
+            const savedTasks = localStorage.getItem(saveName);
             if (savedTasks) {
-                localStorage.setItem('tasks', savedTasks);
-                loadTaskList();
+                taskList.innerHTML = ''; // Effacer la liste actuelle
+                const tasks = JSON.parse(savedTasks);
+                tasks.forEach(task => createTaskElement(task.text, task.completed));
+            } else {
+                alert('Aucune liste de tâches trouvée sous ce nom.');
             }
         }
     });
-
-    function updateLoadSelect() {
-        loadSelect.innerHTML = '<option value="">Charger une sauvegarde</option>';
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key !== 'tasks') {
-                const option = document.createElement('option');
-                option.value = key;
-                option.innerText = key;
-                loadSelect.appendChild(option);
-            }
-        }
-    }
-
-    updateLoadSelect();
-    loadTaskList();
 });
