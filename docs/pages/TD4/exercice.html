@@ -3,50 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exo1 td4 </title>
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../../js/td4/exercice.js"></script>
+    <link rel="stylesheet" href="../../assets/css/td4/calculatrice.css">
+    <title>Calculatrice</title>
 </head>
-    <body onload=showDate();>   
-        <p><b>Cliquez sur le bouton pour changer la couleur du background.</b></p> 
-        <button onclick = "changeColor('blue');">Bleu</button>
-        <button onclick = "changeColor('green');">Vert</button> 
-        <button onclick = "changeColor('red');">Rouge</button>
-        <button onclick = "changeColor('yellow');">Jaune</button>
-
-        <p><b>Cliquez sur le bouton pour changer la couleur du background.</b></p>
-        <input type="text" id="inputElement" placeholder="saisissez un élement">
-        <button id="ajouterBtn">Ajouter</button>
-        <ul id="liste"></ul>
-
-        <p><b>Cliquez sur le bouton pour calculer la somme des deux nombres.</b></p>
-        <input id="nbr1"> + <input id="nbr2">
-      <button onclick="somme()">Calculer la somme</button>
-      = <input id="sum"><br /><br />
-
-      <select name="jeux" id="jeux" onChange="changeit(this.value)">
-        <option value="hidden">Call of Duty</option>
-        <option value="hidden2">Counter Strike</option>
-        <option value="hidden3">Halo 3</option>
-      </select><br /><br />
-       
-       
-      <img id="hidden" src="../../assets/css/td4/callOfDuty.png" style="display: none;"/>
-      <img id="hidden2" src="../../assets/css/td4/csgo.png" style="display: none;"/>
-      <img id="hidden3" src="../../assets/css/td4/halo3.jpg" style="display: none;"/>
-    </body>
-
-    <p><b>Survoler pour afficher une alerte.</b></p>
-    <p id="survolElement">Passez la souris ici pour afficher une alerte !</p>
-
-    <span id='horloge' style="background-color:#1C1C1C;color:silver;font-size:40px;"></span>
-
-    <br /><br />
-
-    <form action='JS-Confirm.html' name='formulaire'>
-    Votre age     <input type='text'   name='age'>
-    <input type='button' value='Confirmer' onClick='ConfirmerAge()'>
-    </form>
-
+<body>
+    <div class="calculator">
+        <div class="ecran"></div>
+        <div class="touches">
+            <button data-key="8" class="bouton">C</button>
+            <button data-key="53" class="bouton">(</button>
+            <button data-key="219" class="bouton">)</button>
+            <button data-key="111" class="bouton">/</button>
+            <button data-key="103" class="bouton">7</button>
+            <button data-key="104" class="bouton">8</button>
+            <button data-key="105" class="bouton">9</button>
+            <button data-key="106" class="bouton">*</button>
+            <button data-key="100" class="bouton">4</button>
+            <button data-key="101" cass="bouton">5</button>
+            <button data-key="102" class="bouton">6</button>
+            <button data-key="109" class="bouton">-</button>
+            <button data-key="97" class="bouton">1</button>
+            <button data-key="98" class="bouton">2</button>
+            <button data-key="99" class="bouton">3</button>
+            <button data-key="107" class="bouton">+</button>
+            <button data-key="96" class="bouton">0</button>
+            <button data-key="110" class="bouton">.</button>
+            <button data-key="13" class="bouton">=</button>
+        </div>
+    </div>
+</body>
+<script src="../../js/td4/calculatrice.js"></script>
 </html>
