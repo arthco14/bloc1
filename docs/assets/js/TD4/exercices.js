@@ -1,74 +1,126 @@
-// Exercice 1 :
+// change le background color en vert
+ const btgreen = document.getElementById('btgreen');
+ btgreen.addEventListener('click', ()=>{
+    document.body.style.backgroundColor = 'green';
+ });
 
-function changeColor(color) { 
-    document.body.style.background = color; 
-}
+// change le background color en bleu
+ const btblue = document.getElementById('btblue');
+ btblue.addEventListener('click', ()=>{
+    document.body.style.backgroundColor = 'blue';
+ });
 
-document.addEventListener("DOMContentLoaded",function(){
+// change le background color en jaune
+ const btyellow = document.getElementById('btyellow');
+ btyellow.addEventListener('click', ()=>{
+    document.body.style.backgroundColor = 'yellow';
+ });
 
-    const inputElement = document.getElementById("inputElement");
-    const ajouterBtn = document.getElementById("ajouterBtn");
-        
-    const liste = document.getElementById("liste");
+// change le background color en rouge
+ const btred = document.getElementById('btred');
+ btred.addEventListener('click', ()=>{
+    document.body.style.backgroundColor = 'red';
+ });
 
-    ajouterBtn.addEventListener("click",
-        function(){
-            const texte = inputElement.value;
-            if(texte !== ""){
-                const li = document.createElement("li");
-                li.textContent = texte;
+ // reset le background color
+ const btreset = document.getElementById('btreset');
+ btreset.addEventListener('click', ()=>{
+    document.body.style.backgroundColor = '';
+ });
 
-                liste.appendChild(li);
-                inputElement.value = "";
-            }
-        });
+ // ajouter un élément avec un bouton sous forme de liste
+const btajout = document.getElementById('btajout');
+btajout.addEventListener('click', ()=>{
+    const texte = document.getElementById('text').value;
+    if (texte !== ''){
+        const li = document.createElement('li');
+        li.innerText = texte;
+        list.appendChild(li);
+    }
+})
 
-    const survolElement = document.getElementById("survolElement");
+// addition de deux nombres
+const addition = document.getElementById('addition')
+addition.addEventListener('click', ()=>{
+    const nb1 = document.getElementById('nb1').value;
+    const nb2 = document.getElementById('nb2').value;
+    const somme = document.getElementById('somme');
+    if (nb1 !== '' && nb2 !== ''){
+        somme.value = parseInt(nb1) + parseInt(nb2);
+    };
+})
 
-    survolElement.addEventListener("mouseover",
-        function(){
-            alert("Vous avez survolé l'élement ! ");
-        });
-        
-    
+// afficher une image en fonction de la sélection
+const menuDeroulant = document.getElementById('menu_deroulant');
+const carImage = document.getElementById('car-image');
+menuDeroulant.addEventListener('change', function() {
+   const selectedValue = this.value;
+      if (selectedValue === "f40") {
+            carImage.src = "../../assets/images/td4/f40.avif";
+            carImage.style.display = "block";
+      } else if (selectedValue === "gt3rs") {
+            carImage.src = "../../assets/images/td4/gt3rs.avif";
+            carImage.style.display = "block";
+      } else if (selectedValue === "jesko") {
+            carImage.src = "../../assets/images/td4/jesko.webp";
+            carImage.style.display = "block";
+      } else {
+            carImage.style.display = "none";
+      };
+})
+// créer une alerte au passage de la souris
+const alerte = document.querySelector(".alerte");
+alerte.addEventListener('mouseover', ()=>{
+   alert('Ceci est une alerte !');
 });
 
-function somme(){
-    let nbr1, nbr2, sum;
-    nbr1 = Number(document.getElementById("nbr1").value);
-        nbr2 = Number(document.getElementById("nbr2").value);
-        sum = nbr1 + nbr2;
-        document.getElementById("sum").value = sum;
+// créer une horloge numérique
+function updateClock() {
+   const now = new Date();
+   let hours = now.getHours();
+   let minutes = now.getMinutes();
+   let seconds = now.getSeconds();
+
+   // Formater pour avoir deux chiffres (ex: 09:05:07)
+   hours = hours < 10 ? '0' + hours : hours;
+   minutes = minutes < 10 ? '0' + minutes : minutes;
+   seconds = seconds < 10 ? '0' + seconds : seconds;
+   const timeString = `${hours}:${minutes}:${seconds}`;
+   document.getElementById('clock').textContent = timeString;
 }
+setInterval(updateClock, 1000); // Appeler updateClock toutes les secondes (1000ms)
+updateClock();
 
-function changeit(val) {
-    document.getElementById("hidden").style.display="none";
-    document.getElementById("hidden2").style.display="none";
-    document.getElementById("hidden3").style.display="none";
-    document.getElementById(val).style.display="block";
-}
-
-function refresh(){
-    var t = 1000; // rafraîchissement en millisecondes
-    setTimeout('showDate()',t)
-}
-
-function showDate() {
-    let date = new Date()
-    let h = date.getHours();
-    let m = date.getMinutes();
-    let s = date.getSeconds();
-    if( h < 10 ){ h = '0' + h; }
-    if( m < 10 ){ m = '0' + m; }
-    if( s < 10 ){ s = '0' + s; }
-    let time = h + ':' + m + ':' + s
-    document.getElementById('horloge').innerHTML = time;
-    refresh();
- }
-
- 
-function ConfirmerAge(){
-if (confirm("Confirmez vous avoir "+ formulaire.age.value +" ans ?")){
-    formulaire.submit();
+// créer un bouton qui supprime un élément
+const deleteButton = document.getElementById('deleteButton');
+deleteButton.addEventListener('click', function() {
+    const confirmation = confirm('Voulez-vous vraiment supprimer cet élément ?');
+    if (confirmation) {
+        const element = document.getElementById('elementASupprimer');
+        element.remove();
     }
-}
+});
+
+// cacher un élément avec une toggle checkbox
+const checkbox = document.getElementById('toggleCheckbox');
+const element = document.getElementById('elementACacher');
+checkbox.addEventListener('change', function() {
+    if (checkbox.checked) {
+        element.style.display = 'block';
+    } else {
+        element.style.display = 'none';
+    }
+});
+
+// formulaire qui envoie les infos dans la console
+document.getElementById("send-button").addEventListener("click", function(event) {
+	event.preventDefault(); // Empêche le formulaire de recharge la page
+	const name = document.getElementById("name").value;
+	const email = document.getElementById("email").value;
+	const message = document.getElementById("message").value;
+	console.log("Nom :", name);
+	console.log("Email :", email);
+	console.log("Message :", message);
+	// Efface le formulaire après l'envoi
+	document.getElementById("contactForm").reset();
+});
