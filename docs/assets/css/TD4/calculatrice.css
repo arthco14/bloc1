@@ -1,79 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    max-width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-    margin: 0;
+    font-family: sans-serif;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
 .calculator {
-    width: 320px;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-#display {
-    width: 100%;
-    height: 60px;
-    background-color: #222;
-    color: white;
-    border: none;
-    text-align: right;
-    padding: 10px;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.buttons-container {
+    background-color: #222222;
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px black;
 }
 
-.button-row {
-    display: flex;
-    justify-content: space-between;
+.ecran {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(198, 237, 255);
     margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.touches {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-gap: 7px;
 }
 
 button {
-    width: 70px;
-    height: 60px;
-    background-color: #444;
-    color: white;
     border: none;
-    font-size: 1.5rem;
+    outline: none;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button.operator {
-    background-color: #ff9500;
-}
-
-button.operator:active {
-    background-color: #ff7700;
-}
-
-button.equal {
-    background-color: #00a5ff;
-    width: calc(160px + 10px); /* Agrandir le bouton "=" pour deux colonnes */
-}
-
-button.equal:active {
-    background-color: #0084cc;
+    background-color: #f7f7f7;
+    box-shadow: 0 3px #a8a8a8;
+    font-size: 18px;
 }
 
 button:active {
-    background-color: #666;
+    box-shadow: 0 1px #a8a8a8;
+    transform: translateY(2px);
 }
 
-/* Bouton "0" prend deux colonnes */
-.button-zero {
-    width: calc(160px + 10px); /* Agrandir le bouton zéro pour deux colonnes */
+button[data-key = "8"] {
+    background-color: #ff9900;
+    font-weight: bold;
+    color: white;
+}
+
+button[data-key = "13"] {
+    grid-column: span 2;
+    background-color: #36e700;
+    font-weight: bold;
+    color: white;
+    font-size: 35px;
 }
