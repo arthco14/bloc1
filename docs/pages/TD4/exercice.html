@@ -1,36 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/td4/calculatrice.css">
-    <title>Calculatrice</title>
+  <meta charset="utf-8">
+  <title>Exercice</title>
+  <link rel="stylesheet" href="../../assets/css/td4/exercice.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="ecran"></div>
-        <div class="touches">
-            <button data-key="8" class="bouton">C</button>
-            <button data-key="53" class="bouton">(</button>
-            <button data-key="219" class="bouton">)</button>
-            <button data-key="111" class="bouton">/</button>
-            <button data-key="103" class="bouton">7</button>
-            <button data-key="104" class="bouton">8</button>
-            <button data-key="105" class="bouton">9</button>
-            <button data-key="106" class="bouton">*</button>
-            <button data-key="100" class="bouton">4</button>
-            <button data-key="101" cass="bouton">5</button>
-            <button data-key="102" class="bouton">6</button>
-            <button data-key="109" class="bouton">-</button>
-            <button data-key="97" class="bouton">1</button>
-            <button data-key="98" class="bouton">2</button>
-            <button data-key="99" class="bouton">3</button>
-            <button data-key="107" class="bouton">+</button>
-            <button data-key="96" class="bouton">0</button>
-            <button data-key="110" class="bouton">.</button>
-            <button data-key="13" class="bouton">=</button>
-        </div>
+    <button id="btgreen">GREEN</button>
+    <button id="btblue">BLUE</button>
+    <button id="btyellow">YELLOW</button>
+    <button id="btred">RED</button>
+    <button id="btreset">RESET</button>
+
+    <input type="text" id="text">
+    <button id="btajout">Ajouter un élément</button>
+    <ul id="list"></ul>
+
+    <input type="text" id="nb1">
+    +
+    <input type="text" id="nb2">
+    <button id="addition">calculer la somme</button>
+    =
+    <input type="text" id="somme">
+	<br>
+	<br>
+    <select name="voitures" id="menu_deroulant">
+        <option value="">--Choisir une image--</option>
+        <option value="f40">F40</option>
+        <option value="gt3rs">GT3RS</option>
+        <option value="jesko">Jesko</option>
+    </select>
+	<br>
+	<br>
+    <div id="image-container">
+        <img id="car-image" src="" alt="Car Image" style="display:none; width:500px; height:auto;">
     </div>
+    <br><br>
+    <div class="alerte">Alerte au passage de la souris</div>
+    <br>
+    <div id="clock"></div>
+    <br>
+    <div id="elementASupprimer">Ceci est l'élément que vous pouvez supprimer.</div>
+    <button id="deleteButton">Supprimer l'élément</button>
+    <br><br>
+    <label for="toggleCheckbox">Afficher l'élément</label>
+    <input type="checkbox" id="toggleCheckbox">
+    <br><br>
+    <div id="elementACacher">Ceci est l'élément que vous pouvez afficher ou cacher.</div>
+    <br><br>
+    <h2>Formulaire de Contact</h2>
+    <form id="contactForm">
+        <label for="name" id="label-name">Nom :</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email" id="label-email">Email :</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message" id="label-message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <button type="submit" id="send-button">Envoyer</button>
+    </form>
 </body>
-<script src="../../js/td4/calculatrice.js"></script>
+<script src="../../js/td4/exercice.js"></script>
 </html>
